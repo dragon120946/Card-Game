@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneInteractive : MonoBehaviour
 {
+    [System.NonSerialized]public bool canPlaceCard;   //是否可以放置卡
+    public GameObject[] venueList = new GameObject[27];
     // Start is called before the first frame update
     void Start()
     {
@@ -13,20 +16,22 @@ public class SceneInteractive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("SoliderCard"))
+        if (venueList[0].gameObject.transform.childCount == 0)
         {
-            Debug.Log("Solider into Scene");
+            canPlaceCard = true;
         }
-    }
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("SoliderCard"))
+        else
         {
-            Debug.Log("Solider exit Scene");
+            canPlaceCard = false;
+        }
+
+        if (canPlaceCard == true)
+        {
+            gameObject.GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = Color.red;
         }
     }
 }
