@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ecd0e0e6cd3ba448e66724021da851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardInfo: {fileID: 0}
+  cardInfo: {fileID: 1869396216580299287, guid: 976dd2cedbdcd6643a28f89bbceec510, type: 3}
   solider: {fileID: 6966058181050807481, guid: 96b2553495d88f748a77b771c338f0c5, type: 3}
   origPos: {x: 0, y: 0}
   originParent: {fileID: 0}
