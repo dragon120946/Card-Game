@@ -571,4 +571,5 @@ MonoBehaviour:
   soliderCard: {fileID: -149622001707670316, guid: 24efbd3cd9323484b8e08fc519d981e4, type: 3}
   txtData: {fileID: 3862497056648006863}
   txtSpd: {fileID: 1234361554248400728}
+  imgSolider: {fileID: 8960466377655793555}
   slidCounter: {fileID: 6136244318505228117}

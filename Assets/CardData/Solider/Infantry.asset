@@ -21,5 +21,6 @@ MonoBehaviour:
   move: 2
   attackRange: 1
   empire: human
+  soliderSprite: {fileID: 21300000, guid: ddd21165ea939f742b9edd2132a1d130, type: 3}
   canFly: 0
   canSwim: 0

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,14 +10,15 @@ public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     GameObject cardInfo;
     [SerializeField] SoliderCard soliderCard;
 
-    public Text txtData;                        //¤h§L§ğ¨¾¤å¦r
-    public Text txtSpd;                         //¤h§L²¾°Ê¤O¤å¦r
+    public Text txtData;                        //å£«å…µæ”»é˜²æ–‡å­—
+    public Text txtSpd;                         //å£«å…µç§»å‹•åŠ›æ–‡å­—
+    public Image imgSolider;                    //å£«å…µåœ–ç‰‡
 
-    [System.NonSerialized]public int hp;        //¤h§L¥Í©R
-    [System.NonSerialized] public int atk;      //¤h§L§ğÀ»
-    [System.NonSerialized] public int spd;      //¤h§L²¾°Ê¤O
-    public Slider slidCounter;                  //¦^¦X­p¼Æ¾¹
-    private bool canMove;                       //¬O§_¯à²¾°Ê
+    [System.NonSerialized]public int hp;        //å£«å…µç”Ÿå‘½
+    [System.NonSerialized] public int atk;      //å£«å…µæ”»æ“Š
+    [System.NonSerialized] public int spd;      //å£«å…µç§»å‹•åŠ›
+    public Slider slidCounter;                  //å›åˆè¨ˆæ•¸å™¨
+    private bool canMove;                       //æ˜¯å¦èƒ½ç§»å‹•
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,8 @@ public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     void Update()
     {
 
-    #region ²¾°Ê¬ÛÃö§P©w
-        //¦pªG²¾°Ê¤O¦³ÅÜ°Ê¡AÅã¥Ü¥Ø«e²¾°Ê¤O
+    #region ç§»å‹•ç›¸é—œåˆ¤å®š
+        //å¦‚æœç§»å‹•åŠ›æœ‰è®Šå‹•ï¼Œé¡¯ç¤ºç›®å‰ç§»å‹•åŠ›
         if (spd != soliderCardData.move)
         {
             txtSpd.transform.parent.gameObject.SetActive(true);
@@ -43,7 +44,7 @@ public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             txtSpd.transform.parent.gameObject.SetActive(false);
         }
-        //¦pªG²¾°Ê¤OÂk0¡AµLªk²¾°Ê¨ÃÅã¥Ü­p¼Æ¾¹
+        //å¦‚æœç§»å‹•åŠ›æ­¸0ï¼Œç„¡æ³•ç§»å‹•ä¸¦é¡¯ç¤ºè¨ˆæ•¸å™¨
         if (spd <= 0 && slidCounter.value < 2)
         {
             slidCounter.gameObject.SetActive(true);

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,28 +7,28 @@ public class VenueCard : CardInteractive
 {
     public VenueCardData venueCardData;
 
-    //¥d¹Ï
+    //å¡åœ–
     public Image imgCardSprite;
-    //¦å¶q¹Ï¤ù
+    //è¡€é‡åœ–ç‰‡
     public Image imgHp;
-    //§ğÀ»¹Ï¤ù
+    //æ”»æ“Šåœ–ç‰‡
     public Image imgAttack;
-    //²¾°Ê¤O¹Ï¤ù
+    //ç§»å‹•åŠ›åœ–ç‰‡
     public Image imgMove;
-    //¶Ë®`¶q©ÎªvÀø¶q
+    //å‚·å®³é‡æˆ–æ²»ç™‚é‡
     public Text txtHp;
-    //¼W¶Ë©Î´î¶Ë
+    //å¢å‚·æˆ–æ¸›å‚·
     public Text txtAttack;
-    //²¾°Ê¤O¼W©Î´î
+    //ç§»å‹•åŠ›å¢æˆ–æ¸›
     public Text txtMove;
 
-    //­n§ïÅÜªº¹Ï¤ù
-    public Sprite hurtSprite;       //¶Ë®`¹Ï¤ù
-    public Sprite healSprite;       //ªvÀø¹Ï¤ù 
-    public Sprite atkUpSprite;      //¼W¶Ë¹Ï¤ù
-    public Sprite atkDownSprite;    //´î¶Ë¹Ï¤ù
-    public Sprite spdUpSprite;      //¥[³t¹Ï¤ù
-    public Sprite spdDownSprite;    //´î³t¹Ï¤ù
+    //è¦æ”¹è®Šçš„åœ–ç‰‡
+    public Sprite hurtSprite;       //å‚·å®³åœ–ç‰‡
+    public Sprite healSprite;       //æ²»ç™‚åœ–ç‰‡ 
+    public Sprite atkUpSprite;      //å¢å‚·åœ–ç‰‡
+    public Sprite atkDownSprite;    //æ¸›å‚·åœ–ç‰‡
+    public Sprite spdUpSprite;      //åŠ é€Ÿåœ–ç‰‡
+    public Sprite spdDownSprite;    //æ¸›é€Ÿåœ–ç‰‡
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class VenueCard : CardInteractive
         txtAttack.text = venueCardData.atkCount.ToString();
         txtMove.text = venueCardData.spdCount.ToString();
 
-        #region ¶Ë®`©ÎªvÀø§P©w
+        #region å‚·å®³æˆ–æ²»ç™‚åˆ¤å®š
         if (venueCardData.dmage != true && venueCardData.heal != true)
         {
             imgHp.gameObject.transform.parent.gameObject.SetActive(false);
@@ -57,7 +57,7 @@ public class VenueCard : CardInteractive
         }
         #endregion
 
-        #region ¼W¶Ë©Î´î¶Ë§P©w
+        #region å¢å‚·æˆ–æ¸›å‚·åˆ¤å®š
         if (venueCardData.atkUp != true && venueCardData.atkDown != true)
         {
             imgAttack.gameObject.transform.parent.gameObject.SetActive(false);
@@ -76,7 +76,7 @@ public class VenueCard : CardInteractive
         }
         #endregion
 
-        #region ¥[³t©Î´î³t§P©w
+        #region åŠ é€Ÿæˆ–æ¸›é€Ÿåˆ¤å®š
         if (venueCardData.spdUp != true && venueCardData.spdDown != true)
         {
             imgMove.gameObject.transform.parent.gameObject.SetActive(false);

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c2a242d2af8e046824ceda1a978802, type: 3}
-  m_Name: Water
+  m_Name: Lake
   m_EditorClassIdentifier: 
   number: 1
   cardName: "\u6E56"
   cardSprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
   ability: "\u6B65\u884C\u58EB\u5175\u78B0\u5230\u6703\u6E1B\u5C111\u79FB\u52D5\u529B"
+  venueSprite: {fileID: 21300000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
   dmage: 0
   heal: 0
   hpCount: 0

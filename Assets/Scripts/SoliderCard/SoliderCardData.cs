@@ -14,6 +14,7 @@ public class SoliderCardData : ScriptableObject
     public int move;
     public int attackRange;
     public string empire;
+    public Sprite soliderSprite;
 
     public bool canFly;
     public bool canSwim;

@@ -10,6 +10,7 @@ public class VenueCardData : ScriptableObject
     public Sprite cardSprite;
     [Multiline]
     public string ability;
+    public Sprite venueSprite;
 
     public bool dmage;
     public bool heal;

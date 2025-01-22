@@ -73,6 +73,8 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
                     .transform.position, Quaternion.identity, eventData.pointerCurrentRaycast
                     .gameObject.transform);
                 //設置角色初始數據
+                soliderObj.GetComponent<SoliderActive>().imgSolider.sprite =
+                    gameObject.GetComponent<SoliderCard>().soliderCardData.soliderSprite;
                 soliderObj.GetComponent<SoliderActive>().txtData.text = gameObject.GetComponent<SoliderCard>().
                     soliderCardData.attack.ToString() + " / " +
                 gameObject.GetComponent<SoliderCard>().soliderCardData.health.ToString();
@@ -85,13 +87,15 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
             else if (gameObject.tag == "VenueCard")
             {
                 eventData.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite
-                    = gameObject.GetComponent<VenueCard>().venueCardData.cardSprite;
-            }
-            //transform.SetParent(eventData.pointerCurrentRaycast.gameObject.transform);
-            //currentTrans.position = eventData.pointerCurrentRaycast
-            //.gameObject.transform.position;
+                    = gameObject.GetComponent<VenueCard>().venueCardData.venueSprite;
+                Destroy(gameObject);
+            } 
         }
         #endregion
+
+        //transform.SetParent(eventData.pointerCurrentRaycast.gameObject.transform);
+        //currentTrans.position = eventData.pointerCurrentRaycast
+        //.gameObject.transform.position;
     }
     #endregion
 }
