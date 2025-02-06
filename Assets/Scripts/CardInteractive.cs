@@ -66,7 +66,8 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             canvasGroup.blocksRaycasts = true;
             //如果是士兵卡，生成角色到該位置;如果是場地卡，改變該位置的場地
-            if (gameObject.tag == "SoliderCard")
+            if (gameObject.tag == "SoliderCard"/* && gameObject.GetComponent<SoliderCard>().soliderCardData.energy 
+                <= GameManager.ap*/)
             {
                 GameObject soliderObj;
                 soliderObj = Instantiate(solider, eventData.pointerCurrentRaycast.gameObject
@@ -81,15 +82,26 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
                 soliderObj.GetComponent<SoliderActive>().txtSpd.text =
                     gameObject.GetComponent<SoliderCard>().soliderCardData.move.ToString();
+                //AP減少所需數值
+                //GameManager.ap -= gameObject.GetComponent<SoliderCard>().soliderCardData.energy;
 
                 Destroy(gameObject);
             }
             else if (gameObject.tag == "VenueCard")
             {
+                //改變場地圖片
                 eventData.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite
                     = gameObject.GetComponent<VenueCard>().venueCardData.venueSprite;
+                //AP全消耗
+                //GameManager.ap = 0;
                 Destroy(gameObject);
-            } 
+            }
+            else
+            {
+                //如果士兵AP超過現有AP則無法放置
+                transform.SetParent(originParent);
+                currentTrans.position = origPos;
+            }
         }
         #endregion
 
