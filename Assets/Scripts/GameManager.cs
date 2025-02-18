@@ -13,7 +13,10 @@ public class GameManager : MonoBehaviour
     private bool alreadyTriggered = false;
     private int n;
     private int x;
+    public GameObject cardChecklist;
     public Button btnTurnEnd;
+    public Button btnDeck;
+    public Button btnCloseChecklist;
     public Slider slidAp;
     public Scrollbar scollDayAndNight;
     public Text txtDay;
@@ -24,7 +27,10 @@ public class GameManager : MonoBehaviour
         turn = 1;
         ap = (int)slidAp.value;
         slidAp.maxValue = 0;
+        cardChecklist.SetActive(false);
         btnTurnEnd.onClick.AddListener(OnBtnTurnEndClick);
+        btnDeck.onClick.AddListener(OnBtnDeckClick);
+        btnCloseChecklist.onClick.AddListener(OnBtnCloseChecklictClick);
     }
 
     // Update is called once per frame
@@ -107,6 +113,16 @@ public class GameManager : MonoBehaviour
     void OnBtnTurnEndClick()
     {
         TurnEnd();
+    }
+
+    void OnBtnDeckClick()
+    {
+        cardChecklist.SetActive(true);
+    }
+
+    void OnBtnCloseChecklictClick()
+    {
+        cardChecklist.SetActive(false);
     }
     void TurnStart() 
     {

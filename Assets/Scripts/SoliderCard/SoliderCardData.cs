@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Solider", menuName ="Card/Solider")]
 public class SoliderCardData : ScriptableObject
 {
-    public int number;
+    public int id;
     public string cardName;
     public Sprite cardSprite;
     public int energy;

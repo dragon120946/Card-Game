@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Venue", menuName = "Card/Venue")]
 public class VenueCardData : ScriptableObject
 {
-    public int number;
+    public int id;
     public string cardName;
     public Sprite cardSprite;
     [Multiline]
