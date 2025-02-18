@@ -30,11 +30,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         n = Mathf.RoundToInt(turn / 2);
         x = Mathf.RoundToInt(n / 2);
 
         //若回合數為奇數，則為我方回合；若回合數為偶數，則為敵方回合
-        Debug.Log("turn:" + turn);
+        //Debug.Log("turn:" + turn);
         //Debug.Log("n:" + n);
         if (turn == n * 2 + 1)
         {
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             scollDayAndNight.value = 0f;
         }
-        else if (n == x * 2 && isEnemyTurn)
+        else if (n == x * 2 + 1 && isEnemyTurn)
         {
             scollDayAndNight.value = 0.33f;
         }
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
         {
             scollDayAndNight.value = 0.66f;
         }
-        else if (n == x * 2 + 1 && isEnemyTurn)
+        else if (n == x * 2 && isEnemyTurn)
         {
             scollDayAndNight.value = 1f;
         }
@@ -89,12 +90,20 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
+        //回合開始時回滿AP後才可消耗AP
+        if (alreadyTriggered)
+        {
+            slidAp.value = ap;
+        }
+
         //測試用
         if (Input.GetKeyDown(KeyCode.Z))
         {
             turn++;
+            alreadyTriggered = false;
         }
     }
+
     void OnBtnTurnEndClick()
     {
         TurnEnd();
@@ -110,7 +119,7 @@ public class GameManager : MonoBehaviour
             //回合開始時，AP直到4前最大值加1，回滿AP
             slidAp.maxValue++;
             slidAp.maxValue = Mathf.Clamp(slidAp.maxValue, 0, 4);
-            slidAp.value = slidAp.maxValue;
+            slidAp.value = ap = (int)slidAp.maxValue;
         }
         alreadyTriggered = true;
     }
