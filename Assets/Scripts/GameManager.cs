@@ -5,27 +5,32 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static int turn;
-    public static int ap;
+    public static int turn;                         //回合數
+    public static int ap;                           //AP
+    public static int playerHP;                     //玩家血量
+    public static int enemyHP;                      //敵方血量
 
-    public bool isMyTurn;
-    public bool isEnemyTurn;
-    private bool alreadyTriggered = false;
-    private int n;
-    private int x;
-    public GameObject cardChecklist;
-    public Button btnTurnEnd;
-    public Button btnDeck;
-    public Button btnCloseChecklist;
-    public Slider slidAp;
-    public Scrollbar scollDayAndNight;
-    public Text txtDay;
+    public bool isMyTurn;                           //我的回合
+    public bool isEnemyTurn;                        //敵方回合
+    private bool alreadyTriggered = false;          //回合是否已經開始
+    private int n;                                  //奇偶數判定1
+    private int x;                                  //奇偶數判定2
+    public GameObject cardChecklist;                //卡片清單
+    public Button btnTurnEnd;                       //回合結束按鈕
+    public Button btnDeck;                          //牌組按鈕
+    public Button btnCloseChecklist;                //關閉牌組按鈕
+    public Slider slidAp;                           //AP滑桿
+    public Scrollbar scollDayAndNight;              //晝夜系統
+    public Text txtDay;                             //天數文字
+    public Text txtPlayerHP;                        //玩家血量文字
+    public Text txtEnemyHP;                         //敵方血量文字
 
     // Start is called before the first frame update
     void Start()
     {
         turn = 1;
         ap = (int)slidAp.value;
+        playerHP = enemyHP = 30;
         slidAp.maxValue = 0;
         cardChecklist.SetActive(false);
         btnTurnEnd.onClick.AddListener(OnBtnTurnEndClick);
@@ -36,10 +41,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        txtPlayerHP.text = playerHP.ToString();
+        txtEnemyHP.text = enemyHP.ToString();
 
         n = Mathf.RoundToInt(turn / 2);
         x = Mathf.RoundToInt(n / 2);
 
+        #region 回合判定
         //若回合數為奇數，則為我方回合；若回合數為偶數，則為敵方回合
         //Debug.Log("turn:" + turn);
         //Debug.Log("n:" + n);
@@ -65,6 +73,7 @@ public class GameManager : MonoBehaviour
         {
             btnTurnEnd.interactable = false;
         }
+        #endregion
 
         #region 晝夜判定
         if (n == 0 || n == x * 2 && isMyTurn)
