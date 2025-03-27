@@ -27,7 +27,7 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerEnter(PointerEventData eventData)
     {
         transform.position += new Vector3(0, 50f, 0);
-        info = Instantiate(cardInfo, new Vector3(960f, 700f, 0f), 
+        info = Instantiate(cardInfo, transform.position + new Vector3(0f, 350f, 0f), 
             Quaternion.identity,GameObject.FindGameObjectWithTag("Canvas").transform);
     }
     //滑鼠離開時，恢復原狀
