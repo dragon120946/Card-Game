@@ -33,13 +33,13 @@ public class VenueCard : CardInteractive
     void Start()
     {
         Base_Start();
-        imgCardSprite.sprite = venueCardData.cardSprite;
-        txtHp.text = venueCardData.hpCount.ToString();
-        txtAttack.text = venueCardData.atkCount.ToString();
-        txtMove.text = venueCardData.spdCount.ToString();
+        imgCardSprite.sprite = venueCardData.卡片資訊.cardSprite;
+        txtHp.text = venueCardData.卡片資訊.hpCount.ToString();
+        txtAttack.text = venueCardData.卡片資訊.atkCount.ToString();
+        txtMove.text = venueCardData.卡片資訊.spdCount.ToString();
 
         #region 傷害或治療判定
-        if (venueCardData.dmage != true && venueCardData.heal != true)
+        if (venueCardData.卡片資訊.dmage != true && venueCardData.卡片資訊.heal != true)
         {
             imgHp.gameObject.transform.parent.gameObject.SetActive(false);
         }
@@ -47,18 +47,18 @@ public class VenueCard : CardInteractive
         {
             imgHp.gameObject.transform.parent.gameObject.SetActive(true);
         }
-        if (venueCardData.dmage == true)
+        if (venueCardData.卡片資訊.dmage == true)
         {
             imgHp.sprite = hurtSprite;
         }
-        else if (venueCardData.heal == true)
+        else if (venueCardData.卡片資訊.heal == true)
         {
             imgHp.sprite = healSprite;
         }
         #endregion
 
         #region 增傷或減傷判定
-        if (venueCardData.atkUp != true && venueCardData.atkDown != true)
+        if (venueCardData.卡片資訊.atkUp != true && venueCardData.卡片資訊.atkDown != true)
         {
             imgAttack.gameObject.transform.parent.gameObject.SetActive(false);
         }
@@ -66,18 +66,18 @@ public class VenueCard : CardInteractive
         {
             imgAttack.gameObject.transform.parent.gameObject.SetActive(true);
         }
-        if (venueCardData.atkUp == true)
+        if (venueCardData.卡片資訊.atkUp == true)
         {
             imgAttack.sprite = atkUpSprite;
         }
-        else if (venueCardData.atkDown == true)
+        else if (venueCardData.卡片資訊.atkDown == true)
         {
             imgAttack.sprite = atkDownSprite;
         }
         #endregion
 
         #region 加速或減速判定
-        if (venueCardData.spdUp != true && venueCardData.spdDown != true)
+        if (venueCardData.卡片資訊.spdUp != true && venueCardData.卡片資訊.spdDown != true)
         {
             imgMove.gameObject.transform.parent.gameObject.SetActive(false);
         }
@@ -85,11 +85,11 @@ public class VenueCard : CardInteractive
         {
             imgMove.gameObject.transform.parent.gameObject.SetActive(true);
         }
-        if (venueCardData.spdUp == true)
+        if (venueCardData.卡片資訊.spdUp == true)
         {
             imgMove.sprite = spdUpSprite;
         }
-        else if (venueCardData.spdDown == true)
+        else if (venueCardData.卡片資訊.spdDown == true)
         {
             imgMove.sprite = spdDownSprite;
         }

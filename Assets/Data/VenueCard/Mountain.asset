@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c2a242d2af8e046824ceda1a978802, type: 3}
   m_Name: Mountain
   m_EditorClassIdentifier: 
-  id: 2
-  cardName: "\u5C71"
-  cardSprite: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
-  ability: "\u98DB\u884C\u58EB\u5175\u79FB\u52D5\u529B-1\n\u6B65\u884C\u58EB\u5175\u79FB\u52D5\u529B-2\n\u6C34\u4E0A\u58EB\u5175\u7121\u6CD5\u79FB\u52D5"
-  venueSprite: {fileID: 21300000, guid: 7821c3aff612c6e49bfbbbf5e194dbca, type: 3}
-  dmage: 0
-  heal: 0
-  hpCount: 0
-  atkUp: 0
-  atkDown: 0
-  atkCount: 0
-  spdUp: 0
-  spdDown: 1
-  spdCount: 2
+  "\u5361\u7247\u8CC7\u8A0A":
+    id: 2
+    cardName: "\u5C71"
+    cardSprite: {fileID: 21300000, guid: 7821c3aff612c6e49bfbbbf5e194dbca, type: 3}
+    ability: "\u6C34\u9762\u58EB\u5175\u79FB\u52D5\u529B-2\n\u6B65\u884C\u58EB\u5175\u79FB\u52D5\u529B-1"
+    venueSprite: {fileID: 21300000, guid: 7821c3aff612c6e49bfbbbf5e194dbca, type: 3}
+    dmage: 0
+    heal: 0
+    hpCount: 0
+    atkUp: 0
+    atkDown: 0
+    atkCount: 0
+    spdUp: 0
+    spdDown: 1
+    spdCount: 1

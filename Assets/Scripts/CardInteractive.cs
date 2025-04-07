@@ -9,7 +9,7 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
 { 
     public GameObject cardInfo;             //卡片詳細
     public GameObject solider;              //士兵prefeb
-
+    
     private Vector2 origPos;                //原位置
     private Transform originParent;         //父物件
     private RectTransform currentTrans;     //UI transform
@@ -26,9 +26,22 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
     //滑鼠碰到時，凸顯卡片位置並顯示卡片細節
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("c");
         transform.position += new Vector3(0, 50f, 0);
         info = Instantiate(cardInfo, transform.position + new Vector3(0f, 350f, 0f), 
             Quaternion.identity,GameObject.FindGameObjectWithTag("Canvas").transform);
+        switch (gameObject.tag)
+        {
+            case "SoliderCard":
+                Debug.Log("讀取士兵數據");
+                info.GetComponent<SoliderCardInfo>().讀取數據(gameObject.GetComponent<SoliderCard>().soliderCardData.卡片資訊);
+                break;
+
+            case "VenueCard":
+                Debug.Log("讀取場地數據");
+                info.GetComponent<VenueCardInfo>().讀取數據(gameObject.GetComponent<VenueCard>().venueCardData.卡片資訊);
+                break;
+        }
     }
     //滑鼠離開時，恢復原狀
     public void OnPointerExit(PointerEventData eventData)
@@ -67,33 +80,41 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
             canvasGroup.blocksRaycasts = true;
 
             //如果是士兵卡，生成角色到該位置;如果是場地卡，改變該位置的場地
-            if (gameObject.tag == "SoliderCard"&& gameObject.GetComponent<SoliderCard>().soliderCardData.energy 
+            if (gameObject.tag == "SoliderCard"&& gameObject.GetComponent<SoliderCard>().soliderCardData.卡片資訊.energy 
                 <= GameManager.ap)
             {
+                SoliderCardData 來源 = gameObject.GetComponent<SoliderCard>().soliderCardData;
+                SoliderCardData.Card 資訊 = gameObject.GetComponent<SoliderCard>().soliderCardData.卡片資訊;
                 GameObject soliderObj;
+                Debug.Log("b");
+                
                 soliderObj = Instantiate(solider, eventData.pointerCurrentRaycast.gameObject
                     .transform.position, Quaternion.identity, eventData.pointerCurrentRaycast
                     .gameObject.transform);
                 //設置角色初始數據
-                soliderObj.GetComponent<SoliderActive>().imgSolider.sprite =
-                    gameObject.GetComponent<SoliderCard>().soliderCardData.soliderSprite;
-                soliderObj.GetComponent<SoliderActive>().txtData.text = gameObject.GetComponent<SoliderCard>().
-                    soliderCardData.attack.ToString() + " / " +
-                gameObject.GetComponent<SoliderCard>().soliderCardData.health.ToString();
+                soliderObj.GetComponent<SoliderActive>().soliderCardData = 來源;
+                soliderObj.GetComponent<SoliderActive>().imgSolider.sprite = 資訊.soliderSprite;
+                soliderObj.GetComponent<SoliderActive>().txtData.text = 資訊.attack.ToString() + " / " +
+                資訊.health.ToString();
 
                 soliderObj.GetComponent<SoliderActive>().txtSpd.text =
-                    gameObject.GetComponent<SoliderCard>().soliderCardData.move.ToString();
+                   資訊.move.ToString();
                 //AP減少所需數值
-                GameManager.ap -= gameObject.GetComponent<SoliderCard>().soliderCardData.energy;
+                GameManager.ap -= 資訊.energy;
 
                 Destroy(gameObject);
             }
             else if (gameObject.tag == "VenueCard" && GameManager.ap != 0)
             {
                 //改變場地圖片
+                Debug.Log("a");
+                VenueCardData 來源 = gameObject.GetComponent<VenueCard>().venueCardData;
+                VenueCardData.Card 資訊 = gameObject.GetComponent<VenueCard>().venueCardData.卡片資訊;
                 eventData.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite
-                    = gameObject.GetComponent<VenueCard>().venueCardData.venueSprite;
+                    = 資訊.venueSprite;
+
                 //AP全消耗
+                eventData.pointerCurrentRaycast.gameObject.GetComponent<SceneInteractive>().venueCardData = 來源;
                 GameManager.ap = 0;
                 Destroy(gameObject);
             }

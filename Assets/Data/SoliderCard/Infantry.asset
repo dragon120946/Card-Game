@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fe1f58774a71843b6ae4407643150c, type: 3}
   m_Name: Infantry
   m_EditorClassIdentifier: 
-  id: 1
-  cardName: "\u6B65\u5175"
-  cardSprite: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
-  energy: 1
-  health: 2
-  attack: 1
-  move: 2
-  attackRange: 1
-  empire: human
-  soliderSprite: {fileID: 21300000, guid: ddd21165ea939f742b9edd2132a1d130, type: 3}
-  canFly: 0
-  canSwim: 0
+  "\u5361\u7247\u8CC7\u8A0A":
+    id: 1
+    cardName: "\u6B65\u5175"
+    cardSprite: {fileID: 21300000, guid: ddd21165ea939f742b9edd2132a1d130, type: 3}
+    energy: 1
+    health: 2
+    attack: 1
+    move: 1
+    attackRange: 1
+    empire: human
+    soliderSprite: {fileID: 21300000, guid: ddd21165ea939f742b9edd2132a1d130, type: 3}
+    "\u5361\u7247\u79FB\u52D5\u65B9\u5F0F": 1

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    SoliderCardData soliderCardData;
+    public SoliderCardData soliderCardData;
     GameObject cardInfo;
-    [SerializeField] SoliderCard soliderCard;
+    [SerializeField] SoliderCard soliderCard;   //士兵卡
 
     public Text txtData;                        //士兵攻防文字
     public Text txtSpd;                         //士兵移動力文字
@@ -23,11 +23,10 @@ public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Start is called before the first frame update
     void Start()
     {
-        soliderCardData = soliderCard.soliderCardData;
         cardInfo = soliderCard.cardInfo;
-        hp = soliderCardData.health;
-        atk = soliderCardData.attack;
-        spd = soliderCardData.move;
+        hp = soliderCardData.卡片資訊.health;
+        atk = soliderCardData.卡片資訊.attack;
+        spd = soliderCardData.卡片資訊.move;
     }
 
     // Update is called once per frame
@@ -36,7 +35,7 @@ public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     #region 移動相關判定
         //如果移動力有變動，顯示目前移動力
-        if (spd != soliderCardData.move)
+        if (spd != soliderCardData.卡片資訊.move)
         {
             txtSpd.transform.parent.gameObject.SetActive(true);
         }
@@ -68,6 +67,7 @@ public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         info = Instantiate(cardInfo, transform.position + new Vector3(0f, 350f, 0f),
             Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        info.GetComponent<SoliderCardInfo>().讀取數據(soliderCardData.卡片資訊);
     }
     public void OnPointerExit(PointerEventData eventData)
     {

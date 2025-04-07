@@ -29,18 +29,9 @@ public class VenueCardInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //和場地卡連動
-        txtCard.text = venueCard.venueCardData.cardName;
-        imgCardSprite.sprite = venueCard.venueCardData.cardSprite;
-        txtHp.text = venueCard.venueCardData.hpCount.ToString();
-        txtAttack.text = venueCard.venueCardData.atkCount.ToString();
-        txtMove.text = venueCard.venueCardData.spdCount.ToString();
-        imgHp.sprite = venueCard.imgHp.sprite;
-        imgAttack.sprite = venueCard.imgAttack.sprite;
-        imgMove.sprite = venueCard.imgMove.sprite;
-
+        
         #region 傷害或治療判定
-        if (venueCard.venueCardData.dmage != true && venueCard.venueCardData.heal != true)
+        if (venueCard.venueCardData.卡片資訊.dmage != true && venueCard.venueCardData.卡片資訊.heal != true)
         {
             imgHp.gameObject.transform.parent.gameObject.SetActive(false);
         }
@@ -48,18 +39,18 @@ public class VenueCardInfo : MonoBehaviour
         {
             imgHp.gameObject.transform.parent.gameObject.SetActive(true);
         }
-        if (venueCard.venueCardData.dmage == true)
+        if (venueCard.venueCardData.卡片資訊.dmage == true)
         {
             imgHp.sprite = venueCard.hurtSprite;
         }
-        else if (venueCard.venueCardData.heal == true)
+        else if (venueCard.venueCardData.卡片資訊.heal == true)
         {
             imgHp.sprite = venueCard.healSprite;
         }
         #endregion
 
         #region 增傷或減傷判定
-        if (venueCard.venueCardData.atkUp != true && venueCard.venueCardData.atkDown != true)
+        if (venueCard.venueCardData.卡片資訊.atkUp != true && venueCard.venueCardData.卡片資訊.atkDown != true)
         {
             imgAttack.gameObject.transform.parent.gameObject.SetActive(false);
         }
@@ -67,18 +58,18 @@ public class VenueCardInfo : MonoBehaviour
         {
             imgAttack.gameObject.transform.parent.gameObject.SetActive(true);
         }
-        if (venueCard.venueCardData.atkUp == true)
+        if (venueCard.venueCardData.卡片資訊.atkUp == true)
         {
             imgAttack.sprite = venueCard.atkUpSprite;
         }
-        else if (venueCard.venueCardData.atkDown == true)
+        else if (venueCard.venueCardData.卡片資訊.atkDown == true)
         {
             imgAttack.sprite = venueCard.atkDownSprite;
         }
         #endregion
 
         #region 加速或減速判定
-        if (venueCard.venueCardData.spdUp != true && venueCard.venueCardData.spdDown != true)
+        if (venueCard.venueCardData.卡片資訊.spdUp != true && venueCard.venueCardData.卡片資訊.spdDown != true)
         {
             imgMove.gameObject.transform.parent.gameObject.SetActive(false);
         }
@@ -86,22 +77,35 @@ public class VenueCardInfo : MonoBehaviour
         {
             imgMove.gameObject.transform.parent.gameObject.SetActive(true);
         }
-        if (venueCard.venueCardData.spdUp == true)
+        if (venueCard.venueCardData.卡片資訊.spdUp == true)
         {
             imgMove.sprite = venueCard.spdUpSprite;
         }
-        else if (venueCard.venueCardData.spdDown == true)
+        else if (venueCard.venueCardData.卡片資訊.spdDown == true)
         {
             imgMove.sprite = venueCard.spdDownSprite;
         }
         #endregion
 
-        txtInfo.text = venueCard.venueCardData.ability;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void 讀取數據(VenueCardData.Card 數據)
+    {
+        //和場地卡連動
+        txtCard.text = 數據.cardName;
+        imgCardSprite.sprite = 數據.cardSprite;
+        txtHp.text = 數據.hpCount.ToString();
+        txtAttack.text = 數據.atkCount.ToString();
+        txtMove.text = 數據.spdCount.ToString();
+        imgHp.sprite = venueCard.imgHp.sprite;
+        imgAttack.sprite = venueCard.imgAttack.sprite;
+        imgMove.sprite = venueCard.imgMove.sprite;
+        txtInfo.text = 數據.ability;
     }
 }

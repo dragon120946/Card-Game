@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //[System.NonSerialized]public bool canPlaceCard;   //是否可以放置卡
-    private VenueCardData venueCardData;
+    public VenueCardData venueCardData;             //
     [SerializeField]private VenueCard venueCard;
     public SoliderActive solider;
 
@@ -28,35 +28,35 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
         //(還沒驗證過是否可行)
 
         #region 血量判定
-        if (venueCardData.dmage)
+        if (venueCardData.卡片資訊.dmage)
         {
-            solider.hp -= venueCardData.hpCount;
+            solider.hp -= venueCardData.卡片資訊.hpCount;
         }
-        else if (venueCardData.heal)
+        else if (venueCardData.卡片資訊.heal)
         {
-            solider.hp += venueCardData.hpCount;
+            solider.hp += venueCardData.卡片資訊.hpCount;
         }
         #endregion
 
         #region 攻擊力判定
-        if (venueCardData.atkUp)
+        if (venueCardData.卡片資訊.atkUp)
         {
-            solider.atk += venueCardData.atkCount;
+            solider.atk += venueCardData.卡片資訊.atkCount;
         }
-        else if (venueCardData.atkDown)
+        else if (venueCardData.卡片資訊.atkDown)
         {
-            solider.atk -= venueCardData.atkCount;
+            solider.atk -= venueCardData.卡片資訊.atkCount;
         }
         #endregion
 
         #region 移動力判定
-        if (venueCardData.spdUp)
+        if (venueCardData.卡片資訊.spdUp)
         {
-            solider.spd += venueCardData.spdCount;
+            solider.spd += venueCardData.卡片資訊.spdCount;
         }
-        else if (venueCardData.spdDown)
+        else if (venueCardData.卡片資訊.spdDown)
         {
-            solider.spd -= venueCardData.spdCount;
+            solider.spd -= venueCardData.卡片資訊.spdCount;
         }
         #endregion
 
@@ -93,6 +93,7 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             info = Instantiate(venueInfo, gameObject.transform.position + new Vector3(0f, 200f, 0f),
             Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            info.GetComponent<VenueInfo>().讀取數據(venueCardData.卡片資訊);
         }
     }
     public void OnPointerExit(PointerEventData eventData)

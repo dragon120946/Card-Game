@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d8fb1023e741444aa8748b258b7b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soliderCardData: {fileID: 0}
   soliderCard: {fileID: -149622001707670316, guid: 24efbd3cd9323484b8e08fc519d981e4, type: 3}
   txtData: {fileID: 3862497056648006863}
   txtSpd: {fileID: 1234361554248400728}

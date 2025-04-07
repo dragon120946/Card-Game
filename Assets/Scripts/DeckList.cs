@@ -27,9 +27,6 @@ public class DeckList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         txtDeck.text = (soliderCardList.Count + venueCardList.Count).ToString();
-        
-       
     }
 }

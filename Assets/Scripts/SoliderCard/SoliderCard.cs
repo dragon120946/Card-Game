@@ -18,10 +18,10 @@ public class SoliderCard : CardInteractive
     void Start()
     {
         Base_Start();
-        imgCardSprite.sprite = soliderCardData.cardSprite;
-        txtEnergy.text = soliderCardData.energy.ToString();
-        txtHp.text = soliderCardData.health.ToString();
-        txtAttack.text = soliderCardData.attack.ToString();
+        imgCardSprite.sprite = soliderCardData.卡片資訊.cardSprite;
+        txtEnergy.text = soliderCardData.卡片資訊.energy.ToString();
+        txtHp.text = soliderCardData.卡片資訊.health.ToString();
+        txtAttack.text = soliderCardData.卡片資訊.attack.ToString();
     }
 
     // Update is called once per frame

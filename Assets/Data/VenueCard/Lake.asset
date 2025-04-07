@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c2a242d2af8e046824ceda1a978802, type: 3}
   m_Name: Lake
   m_EditorClassIdentifier: 
+  "\u5361\u7247\u8CC7\u8A0A":
+    id: 1
+    cardName: "\u6E56"
+    cardSprite: {fileID: 21300000, guid: 980860ac77929eb4ebe28539eb1fd39c, type: 3}
+    ability: "\u6B65\u884C\u58EB\u5175\u79FB\u52D5\u529B-1"
+    venueSprite: {fileID: 21300000, guid: 980860ac77929eb4ebe28539eb1fd39c, type: 3}
+    dmage: 0
+    heal: 0
+    hpCount: 0
+    atkUp: 0
+    atkDown: 0
+    atkCount: 0
+    spdUp: 0
+    spdDown: 1
+    spdCount: 1
   id: 1
   cardName: "\u6E56"
-  cardSprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
+  cardSprite: {fileID: 21300000, guid: 980860ac77929eb4ebe28539eb1fd39c, type: 3}
   ability: "\u6B65\u884C\u58EB\u5175\u79FB\u52D5\u529B-1"
   venueSprite: {fileID: 21300000, guid: 980860ac77929eb4ebe28539eb1fd39c, type: 3}
   dmage: 0
