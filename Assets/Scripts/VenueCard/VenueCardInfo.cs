@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 讀取場地卡資訊並顯示
+/// </summary>
 public class VenueCardInfo : MonoBehaviour
 {
     [SerializeField] private VenueCard venueCard;

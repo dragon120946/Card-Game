@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 士兵卡數據
+/// </summary>
 [CreateAssetMenu(fileName = "New Solider", menuName = "Card/Solider")]
 public class SoliderCardData : ScriptableObject
 {

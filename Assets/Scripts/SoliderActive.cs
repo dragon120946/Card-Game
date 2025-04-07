@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// 場地上的士兵
+/// </summary>
+
 public class SoliderActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public SoliderCardData soliderCardData;

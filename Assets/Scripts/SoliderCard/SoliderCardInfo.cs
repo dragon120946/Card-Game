@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class SoliderCardInfo : MonoBehaviour
 {
-    [SerializeField]SoliderCard soliderCard;
+    //[SerializeField]SoliderCard soliderCard;
     //卡片名稱
     [SerializeField] private Text txtCard;
     //卡圖

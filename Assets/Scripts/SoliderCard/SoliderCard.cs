@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 士兵卡
+/// </summary>
 public class SoliderCard : CardInteractive
 {
     public SoliderCardData soliderCardData;

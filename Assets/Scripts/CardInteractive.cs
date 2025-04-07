@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// 卡片相關互動
+/// </summary>
+
 public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     ,IBeginDragHandler, IDragHandler, IEndDragHandler
 { 
@@ -26,19 +30,19 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
     //滑鼠碰到時，凸顯卡片位置並顯示卡片細節
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("c");
+        //Debug.Log("c");
         transform.position += new Vector3(0, 50f, 0);
         info = Instantiate(cardInfo, transform.position + new Vector3(0f, 350f, 0f), 
             Quaternion.identity,GameObject.FindGameObjectWithTag("Canvas").transform);
         switch (gameObject.tag)
         {
             case "SoliderCard":
-                Debug.Log("讀取士兵數據");
+                //Debug.Log("讀取士兵數據");
                 info.GetComponent<SoliderCardInfo>().讀取數據(gameObject.GetComponent<SoliderCard>().soliderCardData.卡片資訊);
                 break;
 
             case "VenueCard":
-                Debug.Log("讀取場地數據");
+                //Debug.Log("讀取場地數據");
                 info.GetComponent<VenueCardInfo>().讀取數據(gameObject.GetComponent<VenueCard>().venueCardData.卡片資訊);
                 break;
         }
@@ -86,7 +90,7 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 SoliderCardData 來源 = gameObject.GetComponent<SoliderCard>().soliderCardData;
                 SoliderCardData.Card 資訊 = gameObject.GetComponent<SoliderCard>().soliderCardData.卡片資訊;
                 GameObject soliderObj;
-                Debug.Log("b");
+                //Debug.Log("b");
                 
                 soliderObj = Instantiate(solider, eventData.pointerCurrentRaycast.gameObject
                     .transform.position, Quaternion.identity, eventData.pointerCurrentRaycast
@@ -97,8 +101,7 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 soliderObj.GetComponent<SoliderActive>().txtData.text = 資訊.attack.ToString() + " / " +
                 資訊.health.ToString();
 
-                soliderObj.GetComponent<SoliderActive>().txtSpd.text =
-                   資訊.move.ToString();
+                soliderObj.GetComponent<SoliderActive>().txtSpd.text = 資訊.move.ToString();
                 //AP減少所需數值
                 GameManager.ap -= 資訊.energy;
 
@@ -112,9 +115,9 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 VenueCardData.Card 資訊 = gameObject.GetComponent<VenueCard>().venueCardData.卡片資訊;
                 eventData.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite
                     = 資訊.venueSprite;
+                eventData.pointerCurrentRaycast.gameObject.GetComponent<SceneInteractive>().venueCardData = 來源;
 
                 //AP全消耗
-                eventData.pointerCurrentRaycast.gameObject.GetComponent<SceneInteractive>().venueCardData = 來源;
                 GameManager.ap = 0;
                 Destroy(gameObject);
             }

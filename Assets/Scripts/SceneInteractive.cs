@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+/// <summary>
+/// 場地的互動
+/// </summary>
 public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //[System.NonSerialized]public bool canPlaceCard;   //是否可以放置卡
     public VenueCardData venueCardData;             //
-    [SerializeField]private VenueCard venueCard;
     public SoliderActive solider;
 
     [SerializeField]private GameObject venueInfo;
@@ -18,7 +19,6 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     void Start()
     {
-        venueCardData = venueCard.venueCardData;
         imgVenue = gameObject.GetComponent<Image>();
         originSprite = gameObject.GetComponent<Image>().sprite;
     }
@@ -26,7 +26,7 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
     void Update()
     {
         //(還沒驗證過是否可行)
-
+        /*
         #region 血量判定
         if (venueCardData.卡片資訊.dmage)
         {
@@ -48,7 +48,7 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
             solider.atk -= venueCardData.卡片資訊.atkCount;
         }
         #endregion
-
+        
         #region 移動力判定
         if (venueCardData.卡片資訊.spdUp)
         {
@@ -59,7 +59,7 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
             solider.spd -= venueCardData.卡片資訊.spdCount;
         }
         #endregion
-
+        */
         /*
         if (venueList[0].gameObject.transform.childCount == 0)
         {

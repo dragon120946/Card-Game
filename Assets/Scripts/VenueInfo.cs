@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 場上的場地資訊顯示
+/// </summary>
 public class VenueInfo : MonoBehaviour
 {
-    [SerializeField] private VenueCard venueCard;
     [SerializeField] private Text txtInfo;
     // Start is called before the first frame update
     void Start()
     {
-        txtInfo.text = venueCard.venueCardData.卡片資訊.ability;
+       
     }
 
     // Update is called once per frame
