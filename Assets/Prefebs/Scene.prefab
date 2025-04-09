@@ -89,6 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369a562820163064cb6d3dc851207cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  venueCard: {fileID: -3391053769986105356, guid: 4e25ff1f6ca65784893536fcff061b5c, type: 3}
+  venueCardData: {fileID: 0}
   solider: {fileID: 3139882524943370390, guid: 96b2553495d88f748a77b771c338f0c5, type: 3}
-  venueInfo: {fileID: 8073873842956673005, guid: 75709cc486d35cf4ba0ac8c091c5b55f, type: 3}
+  venueInfo: {fileID: 4864508233349914447, guid: 5f3f649ef38542f469ef844ce7d7aeb6, type: 3}

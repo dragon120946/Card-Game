@@ -14,6 +14,7 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     [SerializeField]private GameObject venueInfo;
     private Image imgVenue;
+    //[SerializeField]private Text txtInfo;
     private Sprite originSprite;
     //public GameObject[] venueList = new GameObject[27];
 
@@ -91,9 +92,10 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
         else
         {
-            info = Instantiate(venueInfo, gameObject.transform.position + new Vector3(0f, 200f, 0f),
+            info = Instantiate(venueInfo.transform.GetChild(9).gameObject, gameObject.transform.position + new Vector3(0f, 200f, 0f),
             Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-            info.GetComponent<VenueInfo>().讀取數據(venueCardData.卡片資訊);
+            Debug.Log("0");
+            info.GetComponent<VenueCardInfo>().讀取數據(venueCardData.卡片資訊);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -103,5 +105,4 @@ public class SceneInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExi
     GameObject info;
 
     #endregion
-
 }
