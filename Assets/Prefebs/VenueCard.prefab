@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardInfo: {fileID: 4864508233349914447, guid: 5f3f649ef38542f469ef844ce7d7aeb6, type: 3}
   solider: {fileID: 0}
+  deckData: {fileID: 11400000, guid: f5464c44244b0fd48bcd66d4af85139b, type: 2}
   venueCardData: {fileID: 11400000, guid: 87385bb34f288154eb7d374465b6636a, type: 2}
   imgCardSprite: {fileID: 4621359345786264037}
   imgHp: {fileID: 3726000926411424415}

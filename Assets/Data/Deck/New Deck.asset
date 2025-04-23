@@ -12,15 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c7fed628253ca439df4dd05ae3328e, type: 3}
   m_Name: New Deck
   m_EditorClassIdentifier: 
-  soliderCardDataList:
-  - {fileID: 11400000, guid: 8d59f7e46664138498a8616d740be301, type: 2}
-  - {fileID: 11400000, guid: 8d59f7e46664138498a8616d740be301, type: 2}
-  - {fileID: 11400000, guid: 8d59f7e46664138498a8616d740be301, type: 2}
-  - {fileID: 11400000, guid: ca182733ff4276045a8d6bfa7a373483, type: 2}
-  - {fileID: 11400000, guid: ca182733ff4276045a8d6bfa7a373483, type: 2}
-  - {fileID: 11400000, guid: ca182733ff4276045a8d6bfa7a373483, type: 2}
-  venueCardDataList:
-  - {fileID: 11400000, guid: 87385bb34f288154eb7d374465b6636a, type: 2}
-  - {fileID: 11400000, guid: 0f75279ecf797f249a9fbf3cae5dc9c0, type: 2}
-  - {fileID: 11400000, guid: 87385bb34f288154eb7d374465b6636a, type: 2}
-  - {fileID: 11400000, guid: 0f75279ecf797f249a9fbf3cae5dc9c0, type: 2}
+  soliderCardDataList: []
+  venueCardDataList: []

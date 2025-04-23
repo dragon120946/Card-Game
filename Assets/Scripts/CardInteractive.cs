@@ -13,7 +13,8 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
 { 
     public GameObject cardInfo;             //卡片詳細
     public GameObject solider;              //士兵prefeb
-    
+    public DeckData deckData;               //牌組數據
+
     private Vector2 origPos;                //原位置
     private Transform originParent;         //父物件
     private RectTransform currentTrans;     //UI transform
@@ -138,12 +139,46 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
         #endregion
 
-        if (eventData.pointerCurrentRaycast.gameObject.name == "CardViewport" || 
-            eventData.pointerCurrentRaycast.gameObject.name == "DeckViewport")
+        #region 牌組和持有卡的數據轉換
+        //改變卡片位置
+        if (eventData.pointerCurrentRaycast.gameObject.name == "DeckViewport" ||
+           eventData.pointerCurrentRaycast.gameObject.name == "CardViewport")
         {
             currentTrans.SetParent(eventData.pointerCurrentRaycast.gameObject.transform.GetChild(0));
             currentTrans.position = eventData.pointerCurrentRaycast.gameObject.transform.GetChild(0).position;
         }
+        //改變數據
+        switch (eventData.pointerCurrentRaycast.gameObject.name)
+        {
+            case "DeckViewport":
+   
+                switch (gameObject.tag)
+                {
+                    case "SoliderCard":
+                        deckData.soliderCardDataList.Add(gameObject.GetComponent<SoliderCard>().soliderCardData);
+                        break;
+
+                    case "VenueCard":
+                        deckData.venueCardDataList.Add(gameObject.GetComponent<VenueCard>().venueCardData);
+                        break;
+                }
+
+                break;
+
+            case "CardViewport":
+                switch (gameObject.tag)
+                {
+                    case "SoliderCard":
+                        deckData.soliderCardDataList.Remove(gameObject.GetComponent<SoliderCard>().soliderCardData);
+                        break;
+
+                    case "VenueCard":
+                        deckData.venueCardDataList.Remove(gameObject.GetComponent<VenueCard>().venueCardData);
+                        break;
+                }
+                break;
+        }
+        #endregion
     }
     #endregion
 }

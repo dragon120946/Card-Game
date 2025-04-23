@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardInfo: {fileID: 1869396216580299287, guid: 976dd2cedbdcd6643a28f89bbceec510, type: 3}
   solider: {fileID: 6966058181050807481, guid: 96b2553495d88f748a77b771c338f0c5, type: 3}
+  deckData: {fileID: 11400000, guid: f5464c44244b0fd48bcd66d4af85139b, type: 2}
   soliderCardData: {fileID: 11400000, guid: ca182733ff4276045a8d6bfa7a373483, type: 2}
   imgCardSprite: {fileID: 1174692437570729599}
   txtEnergy: {fileID: 1174692437127916043}
