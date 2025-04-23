@@ -23,7 +23,6 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         canvasGroup = GetComponent<CanvasGroup>();
         currentTrans = GetComponent<RectTransform>();
-        
     }
     #region 滑鼠進出事件
 
@@ -32,7 +31,7 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         //Debug.Log("c");
         transform.position += new Vector3(0, 50f, 0);
-        info = Instantiate(cardInfo, transform.position + new Vector3(0f, 350f, 0f), 
+        info = Instantiate(cardInfo, transform.position + new Vector3(0f, 300f, 0f), 
             Quaternion.identity,GameObject.FindGameObjectWithTag("Canvas").transform);
         switch (gameObject.tag)
         {
@@ -62,9 +61,18 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = false;
-        originParent = transform.parent;
-        origPos = currentTrans.position - new Vector3(0, 50f, 0); ;
-        transform.SetParent(transform.parent);
+        origPos = currentTrans.position - new Vector3(0, 50f, 0); 
+        if (gameObject.transform.parent.name == "CardLayout")
+        {
+            originParent = transform.parent;
+            transform.SetParent(transform.parent);
+        }
+        else if (gameObject.transform.parent.name == "Content")
+        {
+            originParent = transform.parent;
+            transform.SetParent(transform.parent.parent.parent.parent);
+        }
+       
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -129,6 +137,13 @@ public class CardInteractive : MonoBehaviour, IPointerEnterHandler, IPointerExit
             }
         }
         #endregion
+
+        if (eventData.pointerCurrentRaycast.gameObject.name == "CardViewport" || 
+            eventData.pointerCurrentRaycast.gameObject.name == "DeckViewport")
+        {
+            currentTrans.SetParent(eventData.pointerCurrentRaycast.gameObject.transform.GetChild(0));
+            currentTrans.position = eventData.pointerCurrentRaycast.gameObject.transform.GetChild(0).position;
+        }
     }
     #endregion
 }
